@@ -10,7 +10,7 @@ const ProjectCard = () => {
 
       <img
         class="h-full w-full text-white object-cover transition-transform duration-500 group-hover:scale-105"
-        src="https://i1.sndcdn.com/avatars-000508491087-32hktm-t500x500.jpg"
+        src="projectBanners/tesla.jpg"
         alt="No image :("
       />
 

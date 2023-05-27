@@ -12,6 +12,7 @@ const skills = [
   "HTML",
   "CSS",
   "Tailwind",
+  "Material UI",
   "React",
   "Next",
   "Python",
