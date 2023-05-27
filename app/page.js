@@ -1,113 +1,183 @@
-import Image from 'next/image'
+"use client";
+import { useState } from "react";
+import SideNav from "@/components/SideNav";
+import Button from "@/components/Button";
+import SkillCard from "@/components/SkillCard";
+import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
+
+const skills = [
+  "Web Development",
+  "Javascript",
+  "HTML",
+  "CSS",
+  "Tailwind",
+  "React",
+  "Next",
+  "Python",
+  "Pygame",
+  "Responsive Design",
+  "GIT",
+  "Github",
+  "Terminal",
+];
 
 export default function Home() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className=" overflow-y-scroll flex flex-col px-8 sm:px-16 md:px-28 lg:px-44 xl:px-52">
+      {/* HOME */}
+      <div className="flex items-center gap-10 justify-between min-h-screen">
+        <div className="flex flex-col flex-1 gap-6">
+          <div className="text-5xl xl:text-7xl font-extrabold">
+            Hey, I'm Jens, a Web Developer
+          </div>
+          <div className="w-2/3 text-xl xl:text-2xl text-gray-600 dark:text-gray-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a
+            lectus dignissim nisl pharetra consequat. Aliquam vehicula tortor
+            lacus, ac tincidunt nisi eleifend et.
+          </div>
+          <Link href="#projects">
+            <Button>Check out my Projects!</Button>
+          </Link>
         </div>
+        <SideNav num={1} />
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {/* ABOUT */}
+      <div
+        id="about"
+        className="flex items-center justify-between gap-10 min-h-screen"
+      >
+        <div className="flex flex-col gap-10 pt-4">
+          <div className="flex flex-col gap-6 pb-10">
+            <div className="text-6xl font-bold text-red-500">ABOUT ME</div>
+            <div className="h-2 w-full max-w-[200px] bg-rose-500 rounded-full" />
+
+            <div className="w-full max-w-[600px] text-2xl text-gray-600 dark:text-gray-300">
+              Here you will find more information about me, what I do, and my
+              current skills mostly in terms of programming and technology.
+            </div>
+          </div>
+          <div className="flex flex-col xl:flex-row xl:justify-between gap-10">
+            <div className="flex flex-col gap-5">
+              <div className="text-3xl font-bold">Get to know me!</div>
+              <div className="text-xl pb-6 dark:text-gray-200">
+                Vivamus ac ex ante. Proin est metus, rhoncus id euismod nec,
+                elementum et lacus. Nunc pulvinar, purus vel sagittis faucibus,
+                orci tortor scelerisque ipsum, sed varius odio augue sed eros.
+                Vestibulum placerat consequat orci id scelerisque.
+                <br />
+                <br />
+                Cras lobortis odio in quam finibus eleifend ut eu sapien.
+                Integer eget vehicula erat, at vestibulum est. Curabitur ac
+                elementum ligula. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit. Aliquam blandit porta scelerisque. Mauris sed
+                tellus magna. Quisque hendrerit sollicitudin ipsum nec eleifend.
+                <br />
+                <br />
+                Aliquam vitae tristique nunc, id tincidunt lacus. Phasellus eu
+                lacinia diam. Integer eget nulla magna. Nam semper nisl velit,
+                ac porttitor tortor lobortis eu. Maecenas et condimentum nunc.
+                Etiam pellentesque neque ligula, vel ultricies tortor tristique
+                ut. Nunc laoreet odio mi, congue lacinia justo auctor ut.
+              </div>
+            </div>
+            <div classname="flex flex-col w-1/2">
+              <div className="text-3xl font-bold">My Skills</div>
+              <div className="flex flex-wrap w-[400px] gap-3 pt-5">
+                {skills.map((i) => (
+                  <SkillCard>{i}</SkillCard>
+                ))}
+              </div>
+            </div>
+          </div>
+          <Link href="#contact">
+            <Button>Send me a Message!</Button>
+          </Link>
+        </div>
+        <SideNav num={2} />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      {/* PROJECTS */}
+      <div
+        id="projects"
+        className="flex justify-between items-center gap-10 py-16 min-h-screen "
+      >
+        <div className="flex flex-col grow gap-5">
+          <div className="flex flex-col gap-5">
+            <div className="text-6xl font-bold text-red-500">MY PROJECTS</div>
+            <div className="h-2 w-full max-w-[200px] bg-rose-500 rounded-full" />
+            <div className="w-full max-w-[600px] text-2xl text-gray-600 dark:text-gray-300">
+              Here you will find some of my projects that I've made each with a short description and the tools I used in the development
+            </div>
+          </div>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
+          </div>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <SideNav num={3} />
       </div>
-    </main>
-  )
+
+      {/* CONTACT */}
+      <div
+        id="contact"
+        className="min-h-screen flex items-center gap-10 justify-between"
+      >
+        <div className="flex flex-col gap-5">
+          <div className="text-6xl font-bold text-red-500">CONTACT ME</div>
+          <div className="h-2 w-full max-w-[200px] bg-rose-500 rounded-full" />
+          <div className="w-full max-w-[600px] text-2xl text-gray-600 dark:text-gray-300">
+            Feel free to Contact me by submitting the form below and I will get
+            to you as soon as possible
+          </div>
+          <div className="flex flex-col gap-5 mt-10 px-10 py-10  w-full max-w-[600px] border border-slate-200 dark:border-slate-500 bg-white dark:bg-slate-700 rounded-xl ">
+            <div className="flex flex-col gap-2">
+              <div className=" dark:text-slate-300 font-semibold dark:font-bold">Name</div>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                className="py-2 px-3 w-1/2 rounded-lg bg-transparent border border-slate-400 focus:outline-blue-400"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="dark:text-slate-300 font-semibold dark:font-bold">Email</div>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                className="py-2 px-3 w-1/2 rounded-lg bg-transparent border border-slate-400 focus:outline-blue-400"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="dark:text-slate-300 font-semibold dark:font-bold">Message</div>
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                rows="8"
+                className="py-2 px-3 resize-none bg-transparent border w-full border-slate-400 rounded-lg focus:outline-blue-400 "
+              />
+            </div>
+            <div className="flex flex-row-reverse">
+              <button className="text-slate-50 bg-rose-500 font-bold py-3 px-8  w-min rounded-md hover:scale-110 transition">
+                SUBMIT
+              </button>
+            </div>
+          </div>
+        </div>
+        <SideNav num={4} />
+      </div>
+    </div>
+  );
 }
