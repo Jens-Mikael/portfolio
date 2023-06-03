@@ -14,11 +14,11 @@ const ThemeModeToggle = () => {
 
   console.log(theme);
   return (
-    <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+    <button className="h-6 w-6 flex items-center justify-center" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
       {theme === "dark" ? (
         <>
           <svg
-            className="h-6 fill-slate-50 hover:fill-rose-500 transition-colors"
+            className="h-6 fill-slate-50 transition-colors hover:fill-rose-500"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
           >
@@ -28,7 +28,7 @@ const ThemeModeToggle = () => {
       ) : (
         <>
           <svg
-            className="h-6 fill-slate-800 hover:fill-rose-500 transition-colors"
+            className="h-6 fill-slate-800 transition-colors hover:fill-rose-500"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >

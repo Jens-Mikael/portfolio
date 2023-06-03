@@ -3,47 +3,44 @@ import SkillCard from "./SkillCard";
 import ToolBox from "./ToolBox";
 import Button from "./Button";
 
-const ProjectCard = () => {
+const ProjectCard = ({ title, desc, tools, github, img }) => {
   return (
-    <div className="h-[400px] w-full max-w-[600px] group rounded-lg relative items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 text-slate-50">
+    <div className="group relative min-h-[223px] min-w-[400px] max-w-[850px] items-center justify-center overflow-x-clip rounded-lg text-slate-50 transition-shadow hover:shadow-xl hover:shadow-black/30">
       {/* Background image  */}
 
       <img
-        class="h-full w-full text-white object-cover transition-transform duration-500 group-hover:scale-105"
-        src="projectBanners/tesla.jpg"
+        class="h-full w-full object-cover text-white transition-transform duration-500 group-hover:scale-105"
+        src={`projectBanners/${img}`}
         alt="No image :("
       />
 
       {/* Zoom and "opacity" effect  */}
-      <div class="absolute inset-0 transition duration-500 bg-transparent group-hover:bg-black/60"></div>
+      <div class="absolute inset-0 bg-transparent transition duration-500 group-hover:bg-black/60"></div>
 
       {/* The additional info  */}
-      <div class="absolute inset-0 translate-y-[100%] flex flex-col justify-between p-10 transition-all duration-500 group-hover:translate-y-0">
-        <div className="gap-2 flex flex-col">
+      <div class="absolute inset-0 flex translate-y-[100%] flex-col justify-between p-3 transition-all duration-500 group-hover:translate-y-0 md:px-5 md:py-4">
+        <div className="flex flex-col gap-1 sm:gap-2">
           <div className="flex flex-col gap-1">
-            <div className="text-xl text-rose-500">Sociopedia</div>
-            <div className="h-1 w-full max-w-[75px] bg-rose-500 rounded-full" />
+            <div className="hidden sm:flex text-lg text-rose-500 sm:text-xl">{title}</div>
+            <Link href={github} className="flex sm:hidden">
+              <div className=" text-lg text-rose-500">{title}</div>
+            </Link>
+
+            <div className="h-[3px] w-full max-w-[75px] rounded-full bg-rose-500 sm:h-1" />
           </div>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a
-            lectus dignissim nisl pharetra consequat. Aliquam vehicula tortor
-            lacus, ac tincidunt nisi eleifend et.
-          </div>
+          <div className="text-sm sm:text-base">{desc}</div>
           <div className="flex flex-wrap gap-2">
-            <ToolBox>React</ToolBox>
-            <ToolBox>Tailwind</ToolBox>
-            <ToolBox>Next</ToolBox>
-            <ToolBox>Firebase</ToolBox>
-            <ToolBox>React</ToolBox>
-            <ToolBox>React</ToolBox>
+            {tools.map((tool) => (
+              <ToolBox>{tool}</ToolBox>
+            ))}
           </div>
         </div>
         <Link
-          href="/"
-          className="border border-slate-50 w-min py-2 px-4 gap-2 items-center flex rounded-full hover:scale-110 transition"
+          href={github}
+          className="hidden w-min  sm:flex items-center gap-2 rounded-full border border-slate-50  px-2 py-1 text-sm transition hover:scale-110 sm:px-4 sm:py-2 sm:text-base"
         >
           <svg
-            className="h-5 fill-white"
+            className="h-3.5 fill-white sm:h-5"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 496 512"
           >
@@ -57,3 +54,7 @@ const ProjectCard = () => {
 };
 
 export default ProjectCard;
+
+// Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a
+//             lectus dignissim nisl pharetra consequat. Aliquam vehicula tortor
+//             lacus, ac tincidunt nisi eleifend et.
