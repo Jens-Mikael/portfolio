@@ -9,16 +9,16 @@ const ProjectCard = ({ title, desc, tools, github, img }) => {
       {/* Background image  */}
 
       <img
-        class="h-full w-full object-cover text-white transition-transform duration-500 group-hover:scale-105"
+        className="h-full w-full object-cover text-white transition-transform duration-500 group-hover:scale-105"
         src={`projectBanners/${img}`}
         alt="No image :("
       />
 
       {/* Zoom and "opacity" effect  */}
-      <div class="absolute inset-0 bg-transparent transition duration-500 group-hover:bg-black/60"></div>
+      <div className="absolute inset-0 bg-transparent transition duration-500 group-hover:bg-black/60"></div>
 
       {/* The additional info  */}
-      <div class="absolute inset-0 flex translate-y-[100%] flex-col justify-between p-3 transition-all duration-500 group-hover:translate-y-0 md:px-5 md:py-4">
+      <div className="absolute inset-0 flex translate-y-[100%] flex-col justify-between p-3 transition-all duration-500 group-hover:translate-y-0 md:px-5 md:py-4">
         <div className="flex flex-col gap-1 sm:gap-2">
           <div className="flex flex-col gap-1">
             <div className="hidden sm:flex text-lg text-rose-500 sm:text-xl">{title}</div>

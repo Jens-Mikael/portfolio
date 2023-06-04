@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 
 export async function POST(req) {
   require("dotenv").config();
@@ -25,11 +26,11 @@ export async function POST(req) {
       ...mailOptions,
       subject: `${data.name} => ${data.subject}`,
       text: data.message,
-      html: `<h2>Message:</h2> <p>${data.message}</p><h2>Email:</h2> <p>${data.email}</p><h2>Name:</h2> <p>${data.name}</p>`
+      html: `<h2>Message:</h2> <p>${data.message}</p><h2>Email:</h2> <p>${data.email}</p><h2>Name:</h2> <p>${data.name}</p>`,
     });
 
+    return NextResponse.json("email was sent successfully <= res from api");
   } catch (error) {
-    console.log(`Error in sendMail:${error.message}`);
+    console.log(`Error in sendMail method: ${error.message}`);
   }
-  return;
 }

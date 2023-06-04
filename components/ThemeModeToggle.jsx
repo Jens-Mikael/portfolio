@@ -11,8 +11,6 @@ const ThemeModeToggle = () => {
   }, []);
 
   if (!mounted) return;
-
-  console.log(theme);
   return (
     <button className="h-6 w-6 flex items-center justify-center" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
       {theme === "dark" ? (

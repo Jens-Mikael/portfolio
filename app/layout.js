@@ -4,7 +4,7 @@ import { Source_Sans_Pro } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThemeProviderComp from "@/components/ThemeProviderComp";
-import SideStripes from "@/components/SideStripes";
+import { useEffect, useState } from "react";
 
 const sourceSansPro = Source_Sans_Pro({
   subsets: ["latin"],
