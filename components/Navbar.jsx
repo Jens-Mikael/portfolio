@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="flex justify-between">
           {/* HEADER */}
           <div>
-            <p className="font-sans text-3xl font-bold">mewrgejnth</p>
+            <p className="font-sans text-3xl font-bold">Stjernberg</p>
           </div>
 
           {/* NAV ITEMS */}

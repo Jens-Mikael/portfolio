@@ -79,8 +79,6 @@ export const projectData = [
       "Next.js",
       "Redux Toolkit",
       "Firebase",
-      "Firestore",
-      "Firebase Auth",
     ],
     github: "https://github.com/Jens-Mikael/Voting-App",
     img: "vote.jpg",
