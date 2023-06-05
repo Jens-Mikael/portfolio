@@ -1,13 +1,10 @@
 import Link from "next/link";
-import SkillCard from "./SkillCard";
 import ToolBox from "./ToolBox";
-import Button from "./Button";
 
 const ProjectCard = ({ title, desc, tools, github, img }) => {
   return (
     <div className="group relative min-h-[223px] min-w-[400px] max-w-[850px] items-center justify-center overflow-x-clip rounded-lg text-slate-50 transition-shadow hover:shadow-xl hover:shadow-black/30">
       {/* Background image  */}
-
       <img
         className="h-full w-full object-cover text-white transition-transform duration-500 group-hover:scale-105"
         src={`projectBanners/${img}`}

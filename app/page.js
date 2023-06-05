@@ -1,5 +1,3 @@
-"use client";
-import { useState } from "react";
 import SideNav from "@/components/SideNav";
 import Button from "@/components/Button";
 import SkillCard from "@/components/SkillCard";
@@ -56,7 +54,7 @@ export default function Home() {
               <div className="text-3xl font-bold">My Skills</div>
               <div className="flex w-[400px] flex-wrap gap-3 pt-5">
                 {skills.map((i) => (
-                  <SkillCard>{i}</SkillCard>
+                  <SkillCard key={i}>{i}</SkillCard>
                 ))}
               </div>
             </div>
@@ -89,6 +87,7 @@ export default function Home() {
                 tools={i.tools}
                 github={i.github}
                 img={i.img}
+                key={i}
               />
             ))}
           </div>

@@ -11,7 +11,7 @@ const Drawer = () => {
         }
       >
         {/* THE WHITE DRAWER ITSELF */}
-        <div
+        <div 
           className={
             " absolute right-0 h-full w-screen max-w-[15rem] transform  bg-white px-5 py-5 shadow-xl transition-transform duration-500  dark:bg-slate-900 " +
             (isDrawerOpen ? " translate-x-0" : " translate-x-full")
