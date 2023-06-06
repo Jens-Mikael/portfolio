@@ -50,7 +50,7 @@ const Navbar = () => {
                 </Link>
               </button>
             ))}
-            
+
             <ThemeModeToggle />
           </div>
 

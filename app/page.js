@@ -17,7 +17,7 @@ export default function Home() {
       <div className="flex min-h-screen items-center justify-between gap-10">
         <div className="flex flex-1 flex-col gap-6">
           <div className="text-5xl font-extrabold xl:text-7xl">
-            Hey, I'm Jens, a Web Developer
+            Hey, I&apos;m Jens, a Web Developer
           </div>
           <div className="w-2/3 text-xl text-gray-600 dark:text-gray-300 xl:text-2xl">
             {text.home.introduction}

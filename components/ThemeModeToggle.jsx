@@ -12,7 +12,10 @@ const ThemeModeToggle = () => {
 
   if (!mounted) return <div className="h-6 w-6" />;
   return (
-    <button className="h-6 w-6 flex items-center justify-center" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+    <button
+      className="h-6 w-6 flex items-center justify-center"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
       {theme === "dark" ? (
         <>
           <svg
