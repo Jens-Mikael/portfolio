@@ -1,16 +1,16 @@
 import Link from "next/link";
-import SkillCard from "./SkillCard";
 import ToolBox from "./ToolBox";
 
 const ProjectCard = ({ title, desc, tools, github, img }) => {
   return (
-    <div className="group relative min-h-[223px] min-w-[400px] max-w-[850px] items-center justify-center overflow-x-clip rounded-lg text-slate-50 transition-shadow hover:shadow-xl hover:shadow-black/30">
-      {/* Background image  */}
-      <img
-        className="h-full w-full object-cover text-white transition-transform duration-500 group-hover:scale-105"
-        src={`projectBanners/${img}`}
-        alt="No image :("
-      />
+    <Link href={github}>
+      <div className="group relative min-h-[223px] min-w-[400px] max-w-[850px] items-center justify-center overflow-x-clip rounded-lg text-slate-50 transition-shadow hover:shadow-xl hover:shadow-black/30">
+        {/* Background image  */}
+        <img
+          className="h-full w-full object-cover text-white transition-transform duration-500 group-hover:scale-105"
+          src={`projectBanners/${img}`}
+          alt="No image :("
+        />
 
         {/* Zoom and "opacity" effect  */}
         <div className="absolute inset-0 bg-transparent transition duration-500 group-hover:bg-black/60"></div>

@@ -1,5 +1,3 @@
-"use client";
-import { useState } from "react";
 import SideNav from "@/components/SideNav";
 import Button from "@/components/Button";
 import SkillCard from "@/components/SkillCard";
