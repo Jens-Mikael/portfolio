@@ -10,23 +10,15 @@ const ContactForm = () => {
   const [subject, setSubject] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (name === "" || email === "" || subject === "" || message === "") {
-      setError("Please fill in all the fields before submitting.");
-      return;
-    }
-    setError("");
-
+  const handleSubmit = async () => {
+    if (name === null || email === null || message === null) return;
     const data = {
       name,
       email,
       subject,
       message,
     };
-
     try {
       setLoading(true);
       const res = await sendContactForm(data);
@@ -43,96 +35,86 @@ const ContactForm = () => {
       }
     } catch (err) {
       console.log(err.message);
-      setError(err.message);
     }
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <div className="mt-10 flex w-full max-w-[600px] flex-col gap-5 rounded-xl border  border-slate-200 bg-white p-10 dark:border-slate-500 dark:bg-slate-700 sm:min-w-[400px] lg:min-w-[500px] ">
-        <div className="flex flex-col gap-2">
-          <div className=" font-semibold dark:font-bold dark:text-slate-300">
-            Name
-          </div>
-          <input
-            value={name}
-            required
-            
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
-          />
+    <div className="mt-10 flex w-full max-w-[600px] flex-col gap-5 rounded-xl border  border-slate-200 bg-white p-10 dark:border-slate-500 dark:bg-slate-700 sm:min-w-[400px] lg:min-w-[500px] ">
+      <div className="flex flex-col gap-2">
+        <div className=" font-semibold dark:font-bold dark:text-slate-300">
+          Name
         </div>
-        <div className="flex flex-col gap-2">
-          <div className="font-semibold dark:font-bold dark:text-slate-300">
-            Email
-          </div>
-          <input
-            value={email}
-            required
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
-          />
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="font-semibold dark:font-bold dark:text-slate-300">
+          Email
         </div>
-        <div className="flex flex-col gap-2">
-          <div className="font-semibold dark:font-bold dark:text-slate-300">
-            Subject
-          </div>
-          <input
-            value={subject}
-            required
-            onChange={(e) => setSubject(e.target.value)}
-            type="text"
-            className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
-          />
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="font-semibold dark:font-bold dark:text-slate-300">
+          Subject
         </div>
-        <div className="flex flex-col gap-2">
-          <div className="font-semibold dark:font-bold dark:text-slate-300">
-            Message
-          </div>
-          <textarea
-            value={message}
-            required
-            onChange={(e) => setMessage(e.target.value)}
-            rows="8"
-            className="w-full resize-none rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400 "
-          />
+        <input
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+          type="text"
+          className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+        />
+      </div>
+      <div className="flex flex-col gap-2">
+        <div className="font-semibold dark:font-bold dark:text-slate-300">
+          Message
         </div>
-
-        <div className="flex flex-col justify-center items-center mt-5 gap-10">
-          {error !== "" && <div>{error}</div>}
-          <div className="h-14 items-center justify-center flex">
-            {loading ? (
-              <>
-                <Bars
-                  height="50"
-                  weight="50"
-                  color="#f43f5e"
-                  ariaLabel="bars-loading"
-                  visible={true}
-                />
-              </>
-            ) : submitted ? (
-              <>
-                <div className="text-green-400 text-lg border w-max border-green-400 rounded-lg py-2 px-4">
-                  Your message has been sent successfully!
-                </div>
-              </>
-            ) : (
-              <>
-                <button
-                  type="submit"
-                  className="w-min rounded-md bg-rose-500 px-8 py-3  font-bold text-slate-50 transition hover:scale-110"
-                >
-                  SUBMIT
-                </button>
-              </>
-            )}
-          </div>
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          rows="8"
+          className="w-full resize-none rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400 "
+        />
+      </div>
+      <div className="flex justify-center mt-5">
+        <div className="h-14 items-center justify-center flex">
+          {loading ? (
+            <>
+              <Bars
+                height="50"
+                weight="50"
+                color="#f43f5e"
+                ariaLabel="bars-loading"
+                visible={true}
+              />
+            </>
+          ) : submitted ? (
+            <>
+              <div className="text-green-400 text-lg border w-max border-green-400 rounded-lg py-2 px-4">
+                Your message has been sent successfully!
+              </div>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={(e) => handleSubmit(e)}
+                className="w-min rounded-md bg-rose-500 px-8 py-3  font-bold text-slate-50 transition hover:scale-110"
+              >
+                SUBMIT
+              </button>
+            </>
+          )}
         </div>
       </div>
-    </form>
+    </div>
   );
 };
 

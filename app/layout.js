@@ -1,8 +1,10 @@
+"use client";
 import "./globals.css";
 import { Source_Sans_Pro } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Providers from "@/components/Providers";
+import ThemeProviderComp from "@/components/ThemeProviderComp";
+import { useEffect, useState } from "react";
 
 export const metadata = {
   title: "Portfolio",
@@ -18,15 +20,16 @@ const sourceSansPro = Source_Sans_Pro({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Providers>
+      <ThemeProviderComp>
         <body
+          id="home"
           className={`${sourceSansPro.variable} font-source_sans_pro relative dark:bg-slate-800 bg-slate-50 dark:text-slate-50 text-slate-800 flex flex-col`}
         >
           <Navbar />
           {children}
           <Footer />
         </body>
-      </Providers>
+      </ThemeProviderComp>
     </html>
   );
 }

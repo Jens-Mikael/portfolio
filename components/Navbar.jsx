@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import ThemeModeToggle from "./ThemeModeToggle";
 import Link from "next/link";
@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="flex justify-between">
           {/* HEADER */}
           <div>
-            <p className="font-sans text-3xl font-bold">ertcfvybguhl</p>
+            <p className="font-sans text-3xl font-bold">Stjernberg</p>
           </div>
 
           {/* NAV ITEMS */}
@@ -40,7 +40,7 @@ const Navbar = () => {
             }`}
           >
             {navData.map((i) => (
-              <button>
+              <button key={i.name}>
                 <Link
                   href={i.link}
                   onClick={() => setIsDrawerOpen(false)}
