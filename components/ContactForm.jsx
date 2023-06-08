@@ -1,62 +1,48 @@
 "use client";
-import { sendContactForm } from "@/lib/api";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Bars } from "react-loader-spinner";
+import emailjs from "@emailjs/browser";
 
 const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [subject, setSubject] = useState("");
+  const form = useRef();
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (name === "" || email === "" || subject === "" || message === "") {
-      setError("Please fill in all the fields before submitting.");
-      return;
-    }
     setError("");
 
-    const data = {
-      name,
-      email,
-      subject,
-      message,
-    };
+    const serviceId = process.env.NEXT_PUBLIC_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 
-    try {
-      setLoading(true);
-      const res = await sendContactForm(data);
-      setLoading(false);
+    setLoading(true);
 
-      console.log("Response received");
-      if (res.status === 200) {
-        console.log("Response succeeded!");
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
+      (result) => {
+        console.log(result.text);
         setSubmitted(true);
-        setName("");
-        setEmail("");
-        setSubject("");
-        setMessage("");
+        setLoading(false);
+      },
+      (error) => {
+        console.log(error.text);
+        setError(err.message);
+        setLoading(false);
       }
-    } catch (err) {
-      console.log(err.message);
-      setError(err.message);
-    }
+    );
+    e.target.reset();
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form ref={form} onSubmit={(e) => handleSubmit(e)}>
       <div className="mt-10 flex w-full max-w-[600px] flex-col gap-5 rounded-xl border  border-slate-200 bg-white p-10 dark:border-slate-500 dark:bg-slate-700 sm:min-w-[400px] lg:min-w-[500px] ">
         <div className="flex flex-col gap-2">
           <div className=" font-semibold dark:font-bold dark:text-slate-300">
             Name
           </div>
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
             type="text"
             required
             className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
@@ -67,8 +53,7 @@ const ContactForm = () => {
             Email
           </div>
           <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
             type="email"
             required
             className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
@@ -79,9 +64,8 @@ const ContactForm = () => {
             Subject
           </div>
           <input
-            value={subject}
+            name="subject"
             required
-            onChange={(e) => setSubject(e.target.value)}
             type="text"
             className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
           />
@@ -91,8 +75,7 @@ const ContactForm = () => {
             Message
           </div>
           <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            name="message"
             rows="8"
             required
             className="w-full resize-none rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400 "
