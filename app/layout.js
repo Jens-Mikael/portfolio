@@ -4,8 +4,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 export const metadata = {
-  title: "Portfolio",
+  title: "Stjernberg - Portfolio",
   description: "A portfolio built by Jens",
+  icons: {
+    icon: "icons/htmlTag.svg"
+  }
 };
 
 const sourceSansPro = Source_Sans_Pro({
