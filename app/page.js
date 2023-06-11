@@ -5,21 +5,20 @@ import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import { projectData, skills, text } from "@/data";
 import ContactForm from "@/components/ContactForm";
+import { Desc, Header, HeaderLine } from "@/components/Typography";
 
 export default function Home() {
-
-
   return (
-    <div className=" flex flex-col overflow-y-scroll px-8 sm:px-16 md:px-28 lg:px-44 xl:px-52">
+    <div className=" flex flex-col overflow-y-scroll px-4 xs:px-8 sm:px-16 md:px-28 lg:px-44 xl:px-52">
       {/* HOME */}
       <div className="flex min-h-screen items-center justify-between gap-10">
         <div className="flex flex-1 flex-col gap-6">
           <div className="text-5xl font-extrabold xl:text-7xl">
             Hey, I&apos;m Jens, a Web Developer
           </div>
-          <div className="w-2/3 text-xl text-gray-600 dark:text-gray-300 xl:text-2xl">
+          <Desc>
             {text.home.introduction}
-          </div>
+          </Desc>
           <Link href="#projects">
             <Button>Check out my Projects!</Button>
           </Link>
@@ -34,12 +33,9 @@ export default function Home() {
       >
         <div className="flex flex-col gap-10 pt-4">
           <div className="flex flex-col gap-6 pb-10">
-            <div className="text-6xl font-bold text-red-500">ABOUT ME</div>
-            <div className="h-2 w-full max-w-[200px] rounded-full bg-rose-500" />
-
-            <div className="w-full max-w-[600px] text-2xl text-gray-600 dark:text-gray-300">
-              {text.about.introduction}
-            </div>
+            <Header>ABOUT ME</Header>
+            <HeaderLine />
+            <Desc>{text.about.introduction}</Desc>
           </div>
           <div className="flex flex-col gap-10 xl:flex-row xl:justify-between">
             <div className="flex flex-col gap-5">
@@ -52,7 +48,7 @@ export default function Home() {
             </div>
             <div classname="flex flex-col w-1/2">
               <div className="text-3xl font-bold">My Skills</div>
-              <div className="flex w-[400px] flex-wrap gap-3 pt-5">
+              <div className="flex w-[300px] sm:w-[400px] flex-wrap gap-3 pt-5">
                 {skills.map((i) => (
                   <SkillCard key={i}>{i}</SkillCard>
                 ))}
@@ -73,13 +69,13 @@ export default function Home() {
       >
         <div className="flex grow flex-col gap-16">
           <div className="flex flex-col gap-5">
-            <div className="text-6xl font-bold text-red-500">MY PROJECTS</div>
-            <div className="h-2 w-full max-w-[200px] rounded-full bg-rose-500" />
-            <div className="w-full max-w-[600px] text-2xl text-gray-600 dark:text-gray-300">
+            <Header>MY PROJECTS</Header>
+            <HeaderLine />
+            <Desc>
               {text.projects.introduction}
-            </div>
+            </Desc>
           </div>
-          <div className="grid grid-cols-1 gap-10 2xl:grid-cols-2">
+          <div className="grid grid-cols-1 gap-5 sm:gap-10 2xl:grid-cols-2">
             {projectData.map((i) => (
               <ProjectCard
                 title={i.title}
@@ -102,9 +98,11 @@ export default function Home() {
         className="flex min-h-screen items-center justify-between gap-10 py-28"
       >
         <div className="flex flex-col gap-5">
-          <div className="text-6xl font-bold text-red-500">CONTACT ME</div>
-          <div className="h-2 w-full max-w-[200px] rounded-full bg-rose-500" />
-          <div className="w-full max-w-[600px] text-2xl text-gray-600 dark:text-gray-300">{text.contact.introduction}</div>
+          <Header>CONTACT ME</Header>
+          <HeaderLine />
+          <Desc>
+            {text.contact.introduction}
+          </Desc>
           <ContactForm />
         </div>
         <SideNav num={4} />
