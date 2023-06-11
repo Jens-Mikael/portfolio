@@ -36,8 +36,8 @@ const ContactForm = () => {
 
   return (
     <form ref={form} onSubmit={(e) => handleSubmit(e)}>
-      <div className="mt-10 flex w-full max-w-[600px] flex-col gap-5 rounded-xl border  border-slate-200 bg-white p-10 dark:border-slate-500 dark:bg-slate-700 sm:min-w-[400px] lg:min-w-[500px] ">
-        <div className="flex flex-col gap-2">
+      <div className="mt-10 flex w-full max-w-[600px] flex-col gap-3 sm:gap-5 rounded-xl border  border-slate-200 bg-white p-10 dark:border-slate-500 dark:bg-slate-700 sm:min-w-[400px] lg:min-w-[500px] ">
+        <div className="flex flex-col gap-1 sm:gap-2">
           <div className=" font-semibold dark:font-bold dark:text-slate-300">
             Name
           </div>
@@ -45,10 +45,10 @@ const ContactForm = () => {
             name="name"
             type="text"
             required
-            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 ring-blue-400 focus:ring-1 focus:border-blue-400 outline-none"
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1 sm:gap-2">
           <div className="font-semibold dark:font-bold dark:text-slate-300">
             Email
           </div>
@@ -56,10 +56,10 @@ const ContactForm = () => {
             name="email"
             type="email"
             required
-            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 ring-blue-400 focus:ring-1 focus:border-blue-400 outline-none"
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1 sm:gap-2">
           <div className="font-semibold dark:font-bold dark:text-slate-300">
             Subject
           </div>
@@ -67,10 +67,10 @@ const ContactForm = () => {
             name="subject"
             required
             type="text"
-            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 ring-blue-400 focus:ring-1 focus:border-blue-400 outline-none"
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1 sm:gap-2">
           <div className="font-semibold dark:font-bold dark:text-slate-300">
             Message
           </div>
@@ -78,7 +78,7 @@ const ContactForm = () => {
             name="message"
             rows="8"
             required
-            className="w-full resize-none rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400 "
+            className="w-full rounded-lg border border-slate-400 bg-transparent px-3 py-2 ring-blue-400 focus:ring-1 focus:border-blue-400 outline-none"
           />
         </div>
         <div className="flex flex-col justify-center items-center mt-5 gap-10">
