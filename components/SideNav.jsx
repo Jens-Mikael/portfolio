@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const SideNav = ({ num }) => {
   return (
-    <div className="flex w-min flex-col items-center">
+    <div className="sm:flex w-min flex-col items-center hidden">
       <Link
         href="#home"
         className={`rounded-full transition hover:scale-125 ${

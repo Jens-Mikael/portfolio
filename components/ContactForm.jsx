@@ -45,7 +45,7 @@ const ContactForm = () => {
             name="name"
             type="text"
             required
-            className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -56,7 +56,7 @@ const ContactForm = () => {
             name="email"
             type="email"
             required
-            className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -67,7 +67,7 @@ const ContactForm = () => {
             name="subject"
             required
             type="text"
-            className="w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
+            className="w-full sm:w-2/3 rounded-lg border border-slate-400 bg-transparent px-3 py-2 focus:outline-blue-400"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -96,8 +96,11 @@ const ContactForm = () => {
               </>
             ) : submitted ? (
               <>
-                <div className="text-green-400 text-lg border w-max border-green-400 rounded-lg py-2 px-4">
+                <div className="text-green-400 text-lg border w-max hidden sm:flex border-green-400 rounded-lg py-2 px-4">
                   Your message has been sent successfully!
+                </div>
+                <div className="text-green-400 text-lg border w-max flex sm:hidden border-green-400 rounded-lg py-2 px-4">
+                  Your message has been sent!
                 </div>
               </>
             ) : (
