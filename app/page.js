@@ -25,7 +25,6 @@ export default function Home() {
         </div>
         <SideNav num={1} />
       </div>
-
       {/* ABOUT */}
       <div
         id="about"
