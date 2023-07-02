@@ -12,7 +12,7 @@ const ProjectCard = ({ title, desc, tools, github, img }) => {
           alt="No image :("
         />
 
-        {/* Zoom and "opacity" effect  */}
+        {/* Zoom and "opacity" effect */}
         <div className="absolute inset-0 bg-transparent transition duration-500 group-hover:bg-black/60" />
 
         {/* The additional info  */}
