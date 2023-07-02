@@ -58,6 +58,13 @@ export const projectData = [
     img: "google.jpg",
   },
   {
+    title: "Youtube clone",
+    desc: "This is a completely responsive, pixel-perfect clone of YouTube's homepage. The main purpose of this project was to strengthen my skills in frontend development, especially in Tailwind CSS.",
+    tools: ["Tailwind CSS", "Next.js", "Redux toolkit"],
+    github: "https://github.com/Jens-Mikael/youtube-clone",
+    img: "youtube.jpg",
+  },
+  {
     title: "Movie finder",
     desc: "This app allows you to search for any movie that exists in The Movie Database (TMBD) and find information about them. I built it with the goal of mastering and strengthening my skills in working with an external API. Additionally, I gained valuable knowledge of best practices while working with Next.js and Tailwind.",
     tools: ["Tailwind CSS", "Next.js", "Redux Toolkit", "TMBD API"],
@@ -90,4 +97,5 @@ export const projectData = [
     github: "https://github.com/Jens-Mikael/Jens-Weather-App",
     img: "weather.jpg",
   },
+  
 ];

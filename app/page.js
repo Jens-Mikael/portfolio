@@ -9,7 +9,7 @@ import { Desc, Header, HeaderLine } from "@/components/Typography";
 
 export default function Home() {
   return (
-    <div className=" flex flex-col overflow-y-scroll px-4 xs:px-8 sm:px-16 md:px-28 lg:px-44 xl:px-52">
+    <div className="flex flex-col overflow-y-scroll px-4 xs:px-8 sm:px-16 md:px-28 lg:px-44 xl:px-52">
       {/* HOME */}
       <div className="flex min-h-screen items-center justify-between gap-10">
         <div className="flex flex-1 flex-col gap-6">
@@ -25,7 +25,6 @@ export default function Home() {
         </div>
         <SideNav num={1} />
       </div>
-
       {/* ABOUT */}
       <div
         id="about"
