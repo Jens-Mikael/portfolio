@@ -19,7 +19,7 @@ export default function Home() {
           <Desc>
             {text.home.introduction}
           </Desc>
-          <Link href="#projects">
+          <Link href="#projects" className="w-fit">
             <Button>Check out my Projects!</Button>
           </Link>
         </div>
@@ -54,7 +54,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <Link href="#contact">
+          <Link href="#contact" className="w-fit">
             <Button>Send me a Message!</Button>
           </Link>
         </div>

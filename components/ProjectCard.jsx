@@ -31,7 +31,7 @@ const ProjectCard = ({ title, desc, tools, github, img }) => {
             ))}
           </div>
         </div>
-        <Link href={github}>
+        <Link href={github} className="w-min rounded-full">
           <div className="flex flex-row gap-2 items-center rounded-full bg-white/10 border border-white/50 px-2.5 py-2 text-sm sm:text-base sm:px-3 sm:py-2 w-fit">
             <svg
               xmlns="http://www.w3.org/2000/svg"
